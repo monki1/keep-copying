@@ -8,4 +8,4 @@ Tested on Mac OS X 13.1
   - type \NUMBER then press ENTER
   - default is 1000 ms/copy
 - version: 1.0.0+4
-- ![demo](kc_demo.gif)
+- ![demo](assets/demo1.gif)
