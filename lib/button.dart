@@ -10,10 +10,12 @@ import 'package:rxdart/rxdart.dart';
 
 
 double buttonFontSize = 35;
+String start = start;
+String stop = "||";
 class ButtonController{
   static bool active = false;
   static Function callback = (){};
-  static String get text => active ? "||" : "▶";
+  static String get text => active ? stop : start;
   static Duration _intervalDuration = Duration(milliseconds: 1000);
   static set intervalDuration(Duration duration) {
     _intervalDuration = duration;
@@ -27,7 +29,7 @@ class ButtonController{
 
   }
   static BehaviorSubject<int> interval = BehaviorSubject.seeded(_intervalDuration.inMilliseconds);
-  static BehaviorSubject<String> label = BehaviorSubject.seeded("▶");
+  static BehaviorSubject<String> label = BehaviorSubject.seeded(start);
   static Timer? typeTimer;
 
   static Timer get timer => Timer.periodic(_intervalDuration, (timer) async {
@@ -67,7 +69,7 @@ class ButtonController{
       child: StreamBuilder<String>(
         stream: label.stream,
         builder: (context, snapshot) {
-          return Text(snapshot.data ?? "▶", style: TextStyle(fontSize: buttonFontSize.toDouble()));
+          return Text(snapshot.data ?? start, style: TextStyle(fontSize: buttonFontSize.toDouble()));
         },
       )
     );

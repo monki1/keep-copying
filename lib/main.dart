@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:keeptyping/persistence.dart';
-import 'package:keeptyping/set_window_size.dart';
-import 'package:keeptyping/shortcut.dart';
-import 'package:keeptyping/set_speed.dart';
-import 'package:keeptyping/ui_components.dart';
+import 'package:keep_copying/persistence.dart';
+import 'package:keep_copying/set_speed.dart';
+import 'package:keep_copying/set_window_size.dart';
+import 'package:keep_copying/shortcut.dart';
+import 'package:keep_copying/ui_components.dart';
 import 'package:quick_app_generator/quick_app_generator.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'button.dart';
