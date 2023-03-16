@@ -11,4 +11,10 @@
 - to STOP after N minutes
   - type /N then press ENTER
 - version: 1.0.0+4
+- - ### start/stop
+  - ![basic](assets/basic.gif)
 - ![demo](assets/demo1.gif)
+- ### change speed
+- ![change speed](assets/change_speed.gif)
+- ### stop after N minutes
+- ![stop after N minutes](assets/auto_stop.gif)
