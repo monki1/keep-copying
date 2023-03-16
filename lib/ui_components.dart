@@ -8,8 +8,8 @@ String version = "version: 1.0.0+4";
 TextStyle smallLabelStyle = TextStyle(fontSize: 8);
 
 
-Text smallLabelText(String text){
-  return Text(text, textAlign: TextAlign.center ,style: smallLabelStyle);
+SelectableText smallLabelText(String text){
+  return SelectableText(text, textAlign: TextAlign.center ,style: smallLabelStyle);
 }
 
 Widget buttonPositioner(Widget child){
