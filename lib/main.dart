@@ -49,7 +49,8 @@ Future<void> main() async {
           }),
 
       speedStreamLabel(ButtonController.interval),
-      smallLabelText("$shortcutInstruction\n$changeSpeedInstruction\n$version")
+      sleepStreamLabel(SetStop.curfewStream),
+      smallLabelText(instructionLabel),
     ],),
 
 
