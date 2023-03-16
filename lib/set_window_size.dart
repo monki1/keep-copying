@@ -3,7 +3,7 @@ import 'dart:io';
 
 import 'package:desktop_window/desktop_window.dart';
 import 'package:flutter/services.dart';
-final minSize = Size(200, 200);
+final minSize = Size(230, 230);
 final maxSize = Size(300, 300);
 
 Future<void> setWindowSize() async {
