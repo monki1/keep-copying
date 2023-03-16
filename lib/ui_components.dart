@@ -2,9 +2,11 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 
-String shortcutInstruction = "press shift+S to stop, shift+A to start\n(when application is in focus)";
-String changeSpeedInstruction = "to change the speed to NUMBER ms/copy\ntype \\NUMBER then press ENTER";
+String shortcutInstruction = "- press shift+S to stop, shift+A to start\n(when application is in focus)";
+String changeSpeedInstruction = "- to change the speed to NUMBER ms/copy\ntype \\NUMBER then press ENTER";
+String autoStopInstruction = "- to stop after N minutes\ntype /N then press ENTER";
 String version = "version: 1.0.0+4";
+String instructionLabel = "$shortcutInstruction\n$changeSpeedInstruction\n$autoStopInstruction\n$version";
 TextStyle smallLabelStyle = TextStyle(fontSize: 8);
 
 
@@ -31,6 +33,18 @@ Widget speedStreamLabel(Stream<int> stream){
     stream: stream,
     builder: (context, snapshot) {
       return smallLabelText("speed: "+snapshot.data.toString() + "ms/copy");
+    },
+  );
+
+}
+
+Widget sleepStreamLabel(Stream<DateTime?> stream){
+  return StreamBuilder<DateTime?>(
+    stream: stream,
+    builder: (context, snapshot) {
+      DateTime? sleepTime = snapshot.data ?? null;
+      String sleepTimeString = sleepTime == null ? "not set" : sleepTime.toIso8601String();
+      return smallLabelText("auto stop: ${sleepTimeString.split(".")[0]}");
     },
   );
 
