@@ -8,6 +8,7 @@ import 'package:flutter/services.dart';
 import 'package:keep_copying/set_stop.dart';
 import 'package:keypress_simulator/keypress_simulator.dart';
 import 'package:rxdart/rxdart.dart';
+import 'copy.dart';
 
 
 double buttonFontSize = 35;
@@ -32,6 +33,7 @@ class ButtonController{
 
   static Timer get timer => Timer.periodic(_intervalDuration, (timer) async {
     await metaV();
+    SetStop.checkStop();
     log(_intervalDuration.inMilliseconds.toString() + "ms");
   });
 
