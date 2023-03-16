@@ -17,6 +17,7 @@ class SetStop{
     }
     if(DateTime.now().isAfter(_curfew!) && ButtonController.active){
       ButtonController.onPressed();
+      curfew = null;
     }
   }
 
