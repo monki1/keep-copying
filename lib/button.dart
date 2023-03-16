@@ -51,6 +51,7 @@ class ButtonController{
       typeTimer= timer;
     } else {
       typeTimer?.cancel();
+      typeTimer = null;
     }
     active = !active;
     label.add(text);
