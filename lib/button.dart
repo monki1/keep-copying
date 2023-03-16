@@ -5,6 +5,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:keep_copying/set_stop.dart';
 import 'package:keypress_simulator/keypress_simulator.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -24,9 +25,6 @@ class ButtonController{
       typeTimer!.cancel();
       typeTimer = timer;
     }
-
-
-
   }
   static BehaviorSubject<int> interval = BehaviorSubject.seeded(_intervalDuration.inMilliseconds);
   static BehaviorSubject<String> label = BehaviorSubject.seeded(start);
@@ -36,18 +34,8 @@ class ButtonController{
     await metaV();
     log(_intervalDuration.inMilliseconds.toString() + "ms");
   });
-  static Future<void> metaV() async {
-    await keyPressSimulator.simulateKeyPress(
-      key: LogicalKeyboardKey.keyV,
-      modifiers: [ModifierKey.metaModifier],
-    );
-    await keyPressSimulator.simulateKeyPress(
-      key: LogicalKeyboardKey.keyV,
-      modifiers: [ModifierKey.metaModifier],
-      keyDown: false,
-    );
 
-  }
+
   static Function onPressed = (){
     if (!active) {
       typeTimer= timer;
@@ -74,9 +62,4 @@ class ButtonController{
       )
     );
   }
-
-
-
-
-
 }
