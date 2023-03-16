@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:keep_copying/persistence.dart';
 import 'package:keep_copying/set_speed.dart';
+import 'package:keep_copying/set_stop.dart';
 import 'package:keep_copying/set_window_size.dart';
 import 'package:keep_copying/shortcut.dart';
 import 'package:keep_copying/ui_components.dart';
@@ -36,9 +37,13 @@ Future<void> main() async {
           controller: tec,
           focusNode: focusNode,
           onSubmitted: (value) async {
-            setSpeed(value, (int ms){
+            bool speedSet = setSpeed(value, (int ms){
             ButtonController.intervalDuration = Duration(milliseconds: ms);
                 prefs.setInt("interval", ms);});
+            if(!speedSet){
+              SetStop.parseCurfew(value);
+            }
+
             tec.clear();
             focusNode.requestFocus();
           }),
