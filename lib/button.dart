@@ -12,8 +12,9 @@ import 'copy.dart';
 
 
 double buttonFontSize = 35;
-String start = start;
+
 String stop = "||";
+String start = "▶";
 class ButtonController{
   static bool active = false;
   static Function callback = (){};
