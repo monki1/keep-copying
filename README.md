@@ -6,10 +6,10 @@
 - press shift+S to stop, shift+A to start
   - (when application is in focus)
 - to change the SPEED to NUMBER ms/paste
-  - type \NUMBER then press ENTER
+  - type \NUMBER then press ENTER (Right Slash)
   - default is 1000 ms/paste
 - to STOP after N minutes
-  - type /N then press ENTER
+  - type /N then press ENTER (Left Slash)
 
 [//]: # (- version: 1.0.0+4)
 
