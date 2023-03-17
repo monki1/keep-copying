@@ -48,6 +48,8 @@ Future<void> main() async {
         sleepStreamLabel(SetStop.curfewStream),
         divider,
         smallLabelText(instructionLabel),
+        buyMeACoffeeLink,
+        smallLabelText(version),
       ],
     ),
   )

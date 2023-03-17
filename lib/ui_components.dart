@@ -1,11 +1,14 @@
+
 import 'package:flutter/material.dart';
+import 'package:link/link.dart';
 
-
-String changeSpeedInstruction = "- to change the SPEED to NUMBER ms/paste\ntype \\NUMBER then press ENTER";
-String autoStopInstruction = "- to STOP after N minutes\ntype /N then press ENTER";
-String shortcutInstruction = "- press shift+S to stop, shift+A to start\n(when application is in focus)";
+String changeSpeedInstruction = "- to change the SPEED to N ms/paste\ntype \\ N then press ENTER [ BACKSLASH ]";
+String autoStopInstruction = "- to STOP after N minutes\ntype / N then press ENTER [ LEFT SLASH ]";
+String shortcutInstruction = "- press SHIFT+S to STOP, SHIFT+A to START\n[ when application is in focus ]";
+String buyMeACoffee = "https://www.buymeacoffee.com/monkye";
 String version = "version: 1.0.0+4";
-String instructionLabel = "$autoStopInstruction\n$changeSpeedInstruction\n$shortcutInstruction\n$version";
+String instructionLabel = "$autoStopInstruction\n$changeSpeedInstruction\n$shortcutInstruction";
+
 TextStyle smallLabelStyle = const TextStyle(fontSize: 8);
 TextStyle smallLabelStyleBold = const TextStyle(fontSize: 8, fontWeight: FontWeight.bold);
 
@@ -54,4 +57,10 @@ InputDecoration inputDecoration = InputDecoration(
   contentPadding: const EdgeInsets.all(0),
   fillColor: inputFill,
   filled: true,
+);
+
+const Color buyMeACoffeeColor = Colors.red;
+Link buyMeACoffeeLink = Link(
+  url: buyMeACoffee,
+  child: const Text("[buy me a coffee]", style: TextStyle(fontSize: 8, color: buyMeACoffeeColor)),
 );
