@@ -9,10 +9,11 @@ String shortcutInstruction = "- press shift+S to stop, shift+A to start\n(when a
 String version = "version: 1.0.0+4";
 String instructionLabel = "$autoStopInstruction\n$changeSpeedInstruction\n$shortcutInstruction\n$version";
 TextStyle smallLabelStyle = TextStyle(fontSize: 8);
+TextStyle smallLabelStyleBold = TextStyle(fontSize: 8, fontWeight: FontWeight.bold);
 
 
-SelectableText smallLabelText(String text){
-  return SelectableText(text, textAlign: TextAlign.center ,style: smallLabelStyle);
+SelectableText smallLabelText(String text, {bool bold = false}){
+  return SelectableText(text, textAlign: TextAlign.center ,style: bold? smallLabelStyleBold :smallLabelStyle);
 }
 
 Widget buttonPositioner(Widget child){
@@ -33,7 +34,7 @@ Widget speedStreamLabel(Stream<int> stream){
   return StreamBuilder<int>(
     stream: stream,
     builder: (context, snapshot) {
-      return smallLabelText("speed: "+snapshot.data.toString() + "ms/copy");
+      return smallLabelText("speed: "+snapshot.data.toString() + "ms/paste", bold: true);
     },
   );
 
@@ -45,7 +46,7 @@ Widget sleepStreamLabel(Stream<DateTime?> stream){
     builder: (context, snapshot) {
       DateTime? sleepTime = snapshot.data ?? null;
       String sleepTimeString = sleepTime == null ? "not set" : sleepTime.toIso8601String();
-      return smallLabelText("auto stop: ${sleepTimeString.split(".")[0]}");
+      return smallLabelText("auto stop: ${sleepTimeString.split(".")[0]}", bold: true);
     },
   );
 
