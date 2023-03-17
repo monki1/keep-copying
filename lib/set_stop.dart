@@ -1,7 +1,8 @@
 import 'dart:developer';
 
-import 'package:keep_copying/button.dart';
 import 'package:rxdart/rxdart.dart';
+
+import 'button.dart';
 
 class SetStop{
   static DateTime? _curfew;
@@ -35,11 +36,7 @@ class SetStop{
       curfew = null;
       log(e.toString());
     }
-
     return false;
-
-    // parse the curfew string
-    // set the curfew
   }
 
 }

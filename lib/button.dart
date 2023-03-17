@@ -4,11 +4,9 @@ import 'dart:async';
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:keep_copying/set_stop.dart';
-import 'package:keypress_simulator/keypress_simulator.dart';
+import 'package:keep_pasting/set_stop.dart';
 import 'package:rxdart/rxdart.dart';
-import 'copy.dart';
+import 'paste.dart';
 
 
 double buttonFontSize = 35;

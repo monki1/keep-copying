@@ -1,15 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:keep_copying/persistence.dart';
-import 'package:keep_copying/set_speed.dart';
-import 'package:keep_copying/set_stop.dart';
-import 'package:keep_copying/set_window_size.dart';
-import 'package:keep_copying/shortcut.dart';
-import 'package:keep_copying/ui_components.dart';
+import 'package:keep_pasting/keep_pasting.dart';
 import 'package:quick_app_generator/quick_app_generator.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'button.dart';
-
-
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,8 +10,6 @@ Future<void> main() async {
   int ms = getSavedSpeed(prefs);
   ButtonController.intervalDuration = Duration(milliseconds: ms);
   setWindowSize();
-
-
 
   FocusNode focusNode = FocusNode();
   TextEditingController tec = TextEditingController();
@@ -33,27 +24,32 @@ Future<void> main() async {
       buttonPositioner(
         buttonContainer(ButtonController.button)
     ),
-      TextField(
-          controller: tec,
-          focusNode: focusNode,
-          onSubmitted: (value) async {
-            bool speedSet = setSpeed(value, (int ms){
-            ButtonController.intervalDuration = Duration(milliseconds: ms);
-                prefs.setInt("interval", ms);});
-            if(!speedSet){
-              SetStop.parseCurfew(value);
-            }
+        SizedBox(
+          height: 35,
+          child:
+        TextField(
+          decoration: inputDecoration,
+            controller: tec,
+            focusNode: focusNode,
+            onSubmitted: (value) async {
+              bool speedSet = setSpeed(value, (int ms){
+              ButtonController.intervalDuration = Duration(milliseconds: ms);
+                  prefs.setInt("interval", ms);});
+              if(!speedSet){
+                SetStop.parseCurfew(value);
+              }
 
-            tec.clear();
-            focusNode.requestFocus();
-          }),
+              tec.clear();
+              focusNode.requestFocus();
+            }),
+        ),
 
-      speedStreamLabel(ButtonController.interval),
-      sleepStreamLabel(SetStop.curfewStream),
-      smallLabelText(instructionLabel),
-    ],),
-
-
+        speedStreamLabel(ButtonController.interval),
+        sleepStreamLabel(SetStop.curfewStream),
+        divider,
+        smallLabelText(instructionLabel),
+      ],
+    ),
   )
 
   );

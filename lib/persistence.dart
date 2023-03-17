@@ -1,4 +1,5 @@
 import 'package:shared_preferences/shared_preferences.dart';
+
 int initialSpeed = 1000;
 
 int getSavedSpeed(SharedPreferences prefs) {

@@ -1,8 +1,6 @@
 import 'dart:developer';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
-
 import 'button.dart';
 
 final shortcutBindings = {
